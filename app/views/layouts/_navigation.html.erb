@@ -18,16 +18,19 @@
         <li><%= link_to "API Endpoint2", '#' , id: "nav1" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
         <li class="dropdown">
-          <a id="nav1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">"Current user's name"<span class="caret"></span></a>
+          <a id="nav1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <%= "| Admin" if current_user.admin? %><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "View your Profile", '#' %></li>
-            <li><%= link_to "Edit your Profile", '#' %></li>
+            <li><%= link_to "View your Profile", user_path(current_user) %></li>
+            <li><%= link_to "Edit your Profile", edit_user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "Log out", '#', method: :delete %></li>
+            <li><%= link_to "Log out", logout_path, method: :delete %></li>
           </ul>
         </li>
-        <li><%= link_to "Log in", '#', id: "nav1" %></li>
+      <% else %>
+        <li><%= link_to "Log in", login_path, id: "nav1" %></li>
+      <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
