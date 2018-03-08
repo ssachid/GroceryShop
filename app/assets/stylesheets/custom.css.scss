@@ -1,0 +1,39 @@
+$navbar-default-bg: #19abb5;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+#nav1 {
+  color: #fff;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+}
+
+.name {
+  float: right;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #f2f2f2;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+footer a {
+  color: #f2f2f2;
+}
+
+footer a:hover {
+  color: #222;
+}
