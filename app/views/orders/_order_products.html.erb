@@ -1,0 +1,9 @@
+<% obj.each do |product| %>
+  <tr>
+    <td><%= image_tag(product.image, :size => "50x50", class: "img-circle avatar avatar-original", style: "-webkit-user-select:none;
+              display:block; margin:auto;" ) %></td>
+    <td><%= product.name %></td>
+    <td><%= product.quantity %></td>
+    <td><%= product.price %></td>
+  </tr>
+<% end %>

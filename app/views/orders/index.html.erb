@@ -11,14 +11,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th>Product Image</th>
                 <th>Product Name</th>
                 <th>Product Quantity</th>
                 <th>Product Price/Unit</th>
               </tr>
             </thead>
             <tbody>
-              <%= render 'products/products', obj: order.products %>
-              <td colspan = "2"><strong>Total</strong></td>
+              <%= render 'order_products', obj: order.products %>
+              <td colspan = "3"><strong>Total</strong></td>
               <td><strong>$ <%= order.total %></strong></td>
             </tbody>
           </table>

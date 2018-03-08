@@ -57,6 +57,6 @@ footer a:hover {
   margin-top: 5px
 }
 
-th {
-  margin: 0 auto;
+.table-striped th,td {
+  text-align: center;
 }

@@ -1,0 +1,9 @@
+<%= render "shared/page_title", title: "showing all products" %>
+
+<div align="center">
+  <%= will_paginate %>
+</div>
+<%= render 'products', obj: @products %>
+<div align="center">
+  <%= will_paginate %>
+</div>
