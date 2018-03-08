@@ -18,6 +18,7 @@
 7. Twitter bootstrap for styling.
 
 ### Schema
+
 <img src="schema.jpg" alt="Drawing" width="300" height="300" />
 
 ### Spinning Up
