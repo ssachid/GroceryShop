@@ -1,0 +1,37 @@
+<%= render 'shared/page_title', title: "My orders" %>
+<div align="center">
+  <%= will_paginate @orders%>
+    <% @orders.each do |order| %>
+      <div align="center" class="well">
+        <div class="col-md-4"><strong>Order Id: </strong><%= order.id %></div>
+        <div class="col-md-4"><strong>Order Placed: </strong> <%= time_ago_in_words(order.created_at).capitalize %> ago</div>
+        <div class="col-md-4"><strong>Order status: </strong> <%= order.status.capitalize %></div>
+        <hr />
+        <% if order.products.any? %>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Product Quantity</th>
+                <th>Product Price/Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render 'products/products', obj: order.products %>
+              <td colspan = "2"><strong>Total</strong></td>
+              <td><strong>$ <%= order.total %></strong></td>
+            </tbody>
+          </table>
+        <% else %>
+          <p class="badge">No products in this order</p>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+
+  <%= will_paginate @orders%>
+</div>
+
+
+
+

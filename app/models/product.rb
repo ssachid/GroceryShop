@@ -9,5 +9,6 @@ class Product < ApplicationRecord
   # validations
   validates :name, presence: true,
                    length: { minimum: 3, maximum: 25}
-  validates :quantity: presence: true
+  validates :quantity, presence: true
+  validates :price, presence: true
 end

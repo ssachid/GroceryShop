@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  before_save { self.status = "on its way"}
+
   # associations
   belongs_to :user
   has_many :order_products
@@ -6,5 +8,8 @@ class Order < ApplicationRecord
 
   # validations
   validates :user_id, presence: true
-  validates :status, presence: true
+
+  def total
+    self.products.reduce(0) { |sum, product| sum + (product.price * product.quantity) }
+  end
 end
