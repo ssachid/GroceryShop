@@ -8,6 +8,10 @@ $navbar-default-bg: #19abb5;
   color: #fff;
 }
 
+h1 {
+  font-family: 'Lobster', cursive;
+}
+
 #logo {
   float: left;
   font-size: 1.7em;
@@ -59,4 +63,12 @@ footer a:hover {
 
 .table-striped th,td {
   text-align: center;
+}
+
+.input-group {
+  margin: 5px;
+}
+
+.timestamp {
+  vertical-align: middle !important;
 }
