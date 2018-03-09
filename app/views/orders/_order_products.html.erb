@@ -1,5 +1,8 @@
-<% obj.each do |product| %>
-  <tr>
+<tr>
+    <% if timestamp %>
+      <td rowspan="<%= obj.count %>"><%= timestamp %></td>
+    <% end %>
+  <% obj.each do |product| %>
     <td><%= image_tag(product.image, :size => "50x50", class: "img-circle avatar avatar-original", style: "-webkit-user-select:none;
               display:block; margin:auto;" ) %></td>
     <td><%= product.name %></td>
