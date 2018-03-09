@@ -1,0 +1,57 @@
+<div align="center">
+  <h4>Enter a date range and a day, week, or month to receive a breakdown of products sold by quantity per day/week/month.</h4>
+  <hr>
+  <%= form_for :products_sold, :html => { class: "form-inline"}, url: sold_products_path, method: :get do |f| %>
+    <%= f.label :from, class: "sr-only" %>
+    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+      <%= f.text_field :from, class: "form-control datepicker", id: "inlineFormInputGroup", placeholder: "From" %>
+    </div>
+
+    <%= f.label :to, class: "sr-only" %>
+    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+      <%= f.text_field :to, class: "form-control datepicker", id: "inlineFormInputGroup", placeholder: "To" %>
+    </div>
+
+    <div class="input-group">
+      <%= f.label :option, class: "input-group mr-sm-2" %>
+      <%= f.select :option, ['Choose... ', 'Day', 'Week', 'Month'], class: "custom-select mb-2 mr-sm-2 mb-sm-0", id: "inlineFormCustomSelect", placeholder: "Choose.." %>
+    </div>
+
+    <div class="input-group">
+      <%= f.submit 'Submit', class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
+<hr>
+
+{Thu, 08 Mar 2018=>{"Kane Bechtelar"=>24, "Anastasia Considine"=>18, "Trace Lebsack"=>28, "Eulalia Mueller"=>2}}
+
+<% if @sold_products %>
+  <%= render 'shared/page_title', title: "Sold Products by #{@option}" %>
+  <div align="center">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th class="timestamp" rowspan=2>Timestamp</th>
+            <th colspan=2>Product Details</th>
+          </tr>
+          <tr>
+            <th>Product Name</th>
+            <th>Product Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sold_products.each do |timestamp, products| %>
+            <td rowspan="<%= products.count %>"><%= timestamp %></td>
+            <% products.each do |key,value| %>
+              <td><%= key %></td>
+              <td><%= value %></td>
+            <% end %>
+          <% end %>
+        </tbody>
+
+      </table>
+  </div>
+<% end %>
+
+
