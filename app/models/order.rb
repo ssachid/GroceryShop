@@ -12,4 +12,9 @@ class Order < ApplicationRecord
   def total
     self.products.reduce(0) { |sum, product| sum + (product.price * product.quantity) }
   end
+
+  def self.created_between(start_date, end_date)
+    where("created_at >= ? AND created_at <= ?", start_date.to_date, end_date.to_date)
+  end
 end
+
