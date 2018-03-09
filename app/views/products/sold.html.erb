@@ -14,7 +14,7 @@
 
     <div class="input-group">
       <%= f.label :option, class: "input-group mr-sm-2" %>
-      <%= f.select :option, ['Choose... ', 'Day', 'Week', 'Month'], class: "custom-select mb-2 mr-sm-2 mb-sm-0", id: "inlineFormCustomSelect", placeholder: "Choose.." %>
+      <%= f.select :option, ['', 'Day', 'Week', 'Month'], class: "custom-select mb-2 mr-sm-2 mb-sm-0", id: "inlineFormCustomSelect", placeholder: "Choose.." %>
     </div>
 
     <div class="input-group">
@@ -24,12 +24,11 @@
 </div>
 <hr>
 
-{Thu, 08 Mar 2018=>{"Kane Bechtelar"=>24, "Anastasia Considine"=>18, "Trace Lebsack"=>28, "Eulalia Mueller"=>2}}
-
 <% if @sold_products %>
-  <%= render 'shared/page_title', title: "Sold Products by #{@option}" %>
+  <span><h4 class="col-md-10 color" align="center">Products sold by <%=@option%> between <%=@start_date %> and <%= @end_date %> </h4></span>
+  <span class="csv col-md-2 pull-right"><%= table_export_tag('sold_products',{export_link_text: 'Export to CSV', width: '120px', height: '40px', color: '#fff', bgcolor: '#2e6da4'})%></span>
   <div align="center">
-      <table class="table table-striped table-responsive">
+      <table id="sold_products" class="table table-striped table-responsive">
         <thead>
           <tr>
             <th class="timestamp" rowspan=2>Timestamp</th>
@@ -42,10 +41,12 @@
         </thead>
         <tbody>
           <% @sold_products.each do |timestamp, products| %>
-            <td rowspan="<%= products.count %>"><%= timestamp %></td>
+            <td rowspan="<%= products.count + 1%>"><%= timestamp %></td>
             <% products.each do |key,value| %>
+            <tr>
               <td><%= key %></td>
               <td><%= value %></td>
+            </tr>
             <% end %>
           <% end %>
         </tbody>
@@ -53,5 +54,9 @@
       </table>
   </div>
 <% end %>
+
+
+
+
 
 
