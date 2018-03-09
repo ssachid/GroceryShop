@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(first_name: "Shambhavi", username: "ssachid", password: "123456", email: "sham@gmail.com", admin: true)
-user2 = User.create(first_name: "Jack", username: "jack", password: "123456", email: "jack@gmail.com", admin: false)
+
+user1 = User.find_by(username: "ssachid")
+user2 = User.find_by(username: "jack")
 
 5.times do
   Product.create(name: Faker::Name.name, quantity: rand(1..10), price: rand(0.1..10.0).round(2), image: Faker::Avatar.image, description: Faker::Lorem.sentence )
