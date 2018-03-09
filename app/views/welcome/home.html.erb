@@ -1,10 +1,18 @@
 <div class="jumbotron">
-  <h2 align="center" class="display-3">Shipt Coding Challenge!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <% if current_user %>
+    <h2 align="center" class="display-3">Hello <%= current_user.first_name.capitalize %>!</h1>
+  <% end%>
+  <h2 align="center" class="display-3">Welcome to Shipt online grocery service!</h1>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>'
+  <p></p>
+  <% if logged_in? %>
+     <p align="center" class="lead">
+      <%= link_to "Look up Products", products_path, method: :delete, class: "btn btn-danger btn-lg btn-xlarge" %>
+    </p>
+  <% else %>
     <p align="center" class="lead">
       <%= link_to "Sign up", signup_path, class: "btn btn-danger btn-lg btn-xlarge" %>
-  </p>
+    </p>
+  <% end %>
 </div>
 
