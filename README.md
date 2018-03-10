@@ -10,7 +10,6 @@
     - The edit/delete buttons show up only for admins, hidden for other customers. (This feature is not implemented. I just have buttons as placeholders). 
 4. Customers once logged in can see all the orders placed by them. 
     - List of orders include Order ID, Order status, Order placed, Order Total, all products in that order.
-    - 
 5. Admins can see a breakdown of products sold by quantity per day/week/month.
     - This option is only available to admins.
     - Ability to export the results to CSV.
