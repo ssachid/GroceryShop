@@ -72,3 +72,11 @@ footer a:hover {
 .timestamp {
   vertical-align: middle !important;
 }
+
+.color {
+  color: #2e6da4;
+}
+
+button[data-id='sold_products'] {
+  border-radius: 8px;
+}

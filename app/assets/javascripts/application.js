@@ -14,5 +14,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-//= require turbolinks
+//= require table2csv
 //= require_tree .
