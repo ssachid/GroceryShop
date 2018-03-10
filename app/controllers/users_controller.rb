@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Welcome #{@user.username}!"
-      redirect_to user_path(@user)
+      redirect_to products_path
     else
       render 'new'
     end
@@ -38,6 +38,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :username, :email, :password, :password_confirmation)
   end
 end
