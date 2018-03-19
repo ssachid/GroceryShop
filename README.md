@@ -1,4 +1,4 @@
-## Shipt coding Challenge
+## Grocery Shop
 
 ### App description and Features
 
@@ -34,16 +34,7 @@ $ be rails db:seed # used faker gem for seeding products and orders
 # Start the rails server
 $ rails s
 
-# Login credentials for testing purposes
-    1. Admin -> email: "sham@gmail.com", password: "123456"
-    2. Customer -> email: "jack@gmail.com", password: "123456"
-
 ```
-
-**My thought process and implementation video can be found here:** 
-  https://youtu.be/t44SsXTFi7w
-  - This video is private to `coding@shipt.com`. 
-  - I have shared access to the email id: `coding@shipt.com`
 
 ### Associations and Validations
   
@@ -58,8 +49,6 @@ $ rails s
 ### Additional questions
 
 ###### We want to give customers the ability to create lists of products for a one-click ordering of bulk items. How would you design the tables, what are the pros and cons of your approach?
-
-**Here is my thought process for implementing this functionality**
 
 - In order to give customers the ability to create lists of products, we need a `carts` table. 
 - `cart` can have many `products` and the `product` can belong to many `carts`. So there is a many to many relationship between `products` and `carts`. So we need a join table called `cart_items` between `products` and `carts` 
@@ -77,7 +66,7 @@ $ rails s
   - At this point we create a new `order` and add all the products in the `cart` to that `order`.
   - This way the `order` along with the `products` shows up in the customer's `My Orders` tab.
 
-#### If Shipt knew the exact inventory of stores, and when facing a high traffic and limited supply of a particular item, how do you distribute the inventory among customers checking out?
+#### If you knew the exact inventory of stores, and when facing a high traffic and limited supply of a particular item, how do you distribute the inventory among customers checking out?
   - Handle checkouts on a first cum first serve basis!
 
 
